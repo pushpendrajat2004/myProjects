@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>htnml Events </title>
+    <style>
+    h2{
+           position: absolute;
+           top: 10px;
+           left: 50%;
+           transform: translateX(-50%);
+           margin: 0;
+    }
+
+    #button{
+           position: absolute;
+           top: 10px;
+           right: 20px;
+    }
+    #div1{
+           position: absolute;
+           top: 40px;
+    }
+</style>
+</head>
+<body style="background-color: #000000; color: #ffffff;">
+    <h2>Click on items to generate alert</h2>
+    <button id="button">dark</button>
+    <div id="div1">
+        <ul id="images">
+            <li><a style="color: blue" href="https://google.com" id="google">Google</a></li>
+            <li><a style="color: blue" href="https://wikipedia.com" id="wikipedia">wikipedia</a></li>
+            <li><img width="200px" id="photoshop" src="https://images.pexels.com/photos/3561339/pexels-photo-3561339.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt=""></li>
+            <li><img width="200px" id="japan" src="https://images.pexels.com/photos/3532553/pexels-photo-3532553.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt=""></li>
+            <li><img width="200px" id="river" src="https://images.pexels.com/photos/3532551/pexels-photo-3532551.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt=""></li>
+            <li><img width="200px" id="owl" src="https://images.pexels.com/photos/3532552/pexels-photo-3532552.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt="" ></li>
+            <li><img width="200px" id="prayer" src="https://images.pexels.com/photos/2522671/pexels-photo-2522671.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt=""></li>
+        </ul>
+   </div>
+</body>
+<script>
+    document.getElementById('button').addEventListener('click',(e)=>{
+        let body=document.querySelector('body')
+        if(e.target.innerHTML=="dark"){
+            body.style.backgroundColor='white'
+            body.style.color='black'
+            e.target.innerHTML="light";
+        }
+        else if(e.target.innerHTML==="light"){
+            body.style.backgroundColor='black'
+            body.style.color='white'
+            e.target.innerHTML="dark";
+        }
+    })
+
+    document.querySelector('#images').addEventListener('click',function(e){
+        e.preventDefault();
+        if(e.target.id) {
+            alert(`You just clicked on ${e.target.id}`);
+        }
+    })
+
+</script>
+</html>
